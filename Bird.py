@@ -56,9 +56,10 @@ while True:
      posx = posx - 1 
 
      #print bird
-     grovepi.setCursor(posx, posy) 
-     setText( "    @")
-     time.sleep(0.5)
+    
+     #grovepi.setCursor(posx, posy) 
+     #setText( "    @")
+     #time.sleep(0.5)
 
     #check if bird hit pipe or won
      if(posy == rand1 or posy == rand2):
