@@ -3,6 +3,7 @@ from grovepi import *
 import time
 import random
 from grove_rgb_lcd import *
+from grove.factory import
 
 set_bus("RPI_1") # set I2C to use the hardware bus
 
