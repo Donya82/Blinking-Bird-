@@ -120,7 +120,6 @@ while True:
        #Send score 
 
      elif(birdpos == 15 or birdpos == 31):
-      score+=1
       #Score update (pop up screen) check if last point win or loss 
       if player ==1:
         score1 += 1
