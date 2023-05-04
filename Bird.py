@@ -38,6 +38,7 @@ while True:
     else:
       disp = disp[:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
 
+    setText(disp)  
     #set the initial conditions of bird 
     posx = 16 #last pixel of lcd
     cnt = 0 #start the game 
