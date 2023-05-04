@@ -23,6 +23,7 @@ cnt = 1
 oldpos = 0
 posx = 0
 disp= "                                "
+player =1 
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
     posx = 0
@@ -31,6 +32,7 @@ while True:
     rand2 = random.randint(0,1)
     disp= "                                "
     #set player (1 or 2)
+    
     setText(disp)
     #position and print the pipes
     """
@@ -96,16 +98,36 @@ while True:
 
     #check if bird hit pipe or won
      if(birdpos == pipepos1 or birdpos == pipepos2):
-       #Red light 
-       #Reset score
+      #flash red
+      setRGB(255,0,0)
+      #change player 
+        if player==1:
+          player = 2
+          cnt=1
+        elif player==2:
+          if score1> score 2:
+            setText("Player 1 Wins") 
+          elif score1< score 2:
+            setText("Player 2 Wins")          
+          elif score1 == score 2:
+            setText("Tie")   
+           cnt=3
+       
+        
+       
        #Send score 
-       #go to lose page 
-       cnt=1
+
      elif(birdpos == 15 or birdpos == 31):
-      #Pause
+      score+=1
       #Score update (pop up screen) check if last point win or loss 
+      if player ==1:
+        score1 += 1
+      elif player ==2:
+        score2 += 1
       #Green light 
-      #next player
+      setRGB(0,255,0)
+      time.sleep(0.50)
+      #continue game
       cnt =1
      else:
       cnt =0
