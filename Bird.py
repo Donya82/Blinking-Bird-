@@ -42,13 +42,13 @@ while True:
       disp = "@" + disp[1:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
     else:
       disp = "@" + disp[1:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
-
+  
     setText(disp)  
     #set the initial conditions of bird 
     posx = 0 #last pixel of lcd
     cnt = 0 #start the game 
     
-
+  
   while cnt == 0:#start the game
       # moves flappy up and down
      dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
@@ -62,7 +62,7 @@ while True:
      # moves flappy forward
      posx += 1 
       
-     birdpos = (posy*16)+posx
+     birdpos = (posy*16)+1
      if oldpos <= birdpos:
       disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos:]
      else:
