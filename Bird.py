@@ -122,6 +122,7 @@ while True:
           elif score1 == score2:
             setText("Tie")   
           cnt=3
+          time.sleep(1)
        
         
        
