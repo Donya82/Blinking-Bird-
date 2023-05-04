@@ -19,7 +19,7 @@ adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
 
- while cnt == 1: 
+while cnt == 1: 
   #pipe 
   lcd.cursor_pos = (rand1, 4)
   lcd.write_string( "!")
@@ -27,7 +27,7 @@ grove_vcc = 5
   lcd.write_string( "!")
   posx = 16 #last pixel of lcd
   cnt = 0 
- while cnt == 0:
+while cnt == 0:
   try:  
    dist= grovepi.ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
    time.sleep(0.1) # don't overload the i2c bus 
