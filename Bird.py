@@ -50,6 +50,7 @@ while True:
     
   
   while cnt == 0:#start the game
+      setText("DEBUG")
       # moves flappy up and down
      dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
      time.sleep(0.1) # don't overload the i2c bus 
