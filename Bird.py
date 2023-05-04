@@ -24,10 +24,10 @@ while cnt == 1: #when cnt=1 game is in the begining set up phase
   #set player (1 or 2)
   
   #position and print the pipes
-  lcd.cursor_pos = (rand1, 4)
-  lcd.write_string( "!")
-  lcd.cursor_pos = (rand2, 6)
-  lcd.write_string( "!")
+  cursor_pos = (rand1, 4)
+  write_string( "!")
+  cursor_pos = (rand2, 6)
+  write_string( "!")
   
   #set the initial conditions of bird 
   posx = 16 #last pixel of lcd
@@ -47,8 +47,8 @@ while cnt == 0:#start the game
    posx = posx - 1 
  
    #print bird
-   lcd.cursor_pos = (posy, posx) 
-   lcd.write_string( "@")
+   cursor_pos = (posy, posx) 
+   write_string( "@")
    time.sleep(0.5)
     
   #check if bird hit pipe or won
