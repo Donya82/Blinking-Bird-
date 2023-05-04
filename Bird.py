@@ -67,9 +67,4 @@ while cnt == 0:
     cnt =1
   else :
 
-    
- 
- except IOError:
-  
-  print ("Error angle")
 
