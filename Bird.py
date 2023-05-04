@@ -54,7 +54,7 @@ while True:
      #setText("DEBUG")
      #time.sleep(0.1)
      # moves flappy up and down
-     
+     '''
      dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
      time.sleep(0.1) # don't overload the i2c bus 
      sensor_value = 150 #set midway sensor value
@@ -64,10 +64,10 @@ while True:
      elif(dist < sensor_value):  #if distance is lower than the threshhold flappy moves down 
       posy = 0  
       setText("high")
-     """
+     '''
      
      posy = random.randint(0,1)
-     """
+     
      # moves flappy forward
      posx += 1 
       
