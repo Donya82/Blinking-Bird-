@@ -18,7 +18,7 @@ time.sleep(1)
 adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
-while cnt = 1: 
+while cnt == 1: 
     #pipe 
      lcd.cursor_pos = (rand1, 4)
      lcd.write_string( "!")
@@ -29,7 +29,7 @@ while cnt = 1:
      cnt = 0 
 
  
-while cnt = 0:
+while cnt == 0:
  
  try:  
   dist= grovepi.ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
@@ -59,7 +59,7 @@ while cnt = 0:
         #Send score 
         #go to lose page 
         cnt=1
-  elif(posx =0):
+  elif(posx == 0):
     #Pause
     #Score update (pop up screen) check if last point win or loss 
     #Green light 
