@@ -39,7 +39,7 @@ while True:
     grovepi.setCursor(6, rand2)
     setText( "!")
     """
-    pipepos1 = (rand1*16) + random.randint(2,6)
+    pipepos1 = (rand1*16) + random.randint(2,5)
     pipepos2 = (rand2*16) + random.randint(6,10)
     
     if pipepos1 <= pipepos2:
