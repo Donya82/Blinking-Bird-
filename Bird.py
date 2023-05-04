@@ -26,6 +26,7 @@ disp= "                                "
 player =1 
 score1=0
 score2=0
+setRGB(100,0,255)
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
     posx = 0
@@ -62,7 +63,7 @@ while True:
      #setText("DEBUG")
      #time.sleep(0.1)
      # moves flappy up and down
-     
+     setRGB(100,0,255)
     # dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
      sensor_value = (analogRead(potentiometer)/2)
       
