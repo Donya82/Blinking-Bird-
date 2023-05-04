@@ -1,6 +1,7 @@
 
 from grovepi import *
 import time
+import random
 from grove_rgb_lcd import *
 grovepi.set_bus("RPI_1") # set I2C to use the hardware bus
 
@@ -8,8 +9,8 @@ grovepi.set_bus("RPI_1") # set I2C to use the hardware bus
 ultrasonic_ranger = 4 # Connect the Grove Ultrasonic Ranger to digital port D4
 range = 150 #mid point of range
 birdpos = (posx, posy)
-rand1 = [0,1]
-rand2 = [0,1]
+rand1 = random.randint(0, 1)
+rand2 = random.randint(0, 1)
 
 time.sleep(1)
 
