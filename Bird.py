@@ -19,6 +19,7 @@ adc_ref = 5
 grove_vcc = 5
 cnt = 1
 oldpos = 0
+posx = 0
 disp= "                                "
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
@@ -44,7 +45,7 @@ while True:
 
     setText(disp)  
     #set the initial conditions of bird 
-    posx = 16 #last pixel of lcd
+    posx = 0 #last pixel of lcd
     cnt = 0 #start the game 
     
 
@@ -59,8 +60,7 @@ while True:
       posy = 0    
 
      # moves flappy forward
-     posx = posx + 1 
-     
+     posx += 1 
       
      birdpos = (posy*16)+posx
      if oldpos <= birdpos:
