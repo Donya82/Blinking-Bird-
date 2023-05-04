@@ -25,6 +25,7 @@ posx = 0
 disp= "                                "
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
+    posx = 0
     oldpos = 0
     rand1 = random.randint(0,1) #setting random ints for the position of the pipes
     rand2 = random.randint(0,1)
@@ -75,7 +76,7 @@ while True:
      # moves flappy forward
      posx += 1 
       
-     birdpos = (posy*16)+1
+     birdpos = (posy*16)+posx
      if oldpos <= birdpos:
       disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos+1:]
      else:
