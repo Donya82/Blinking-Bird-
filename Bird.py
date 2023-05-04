@@ -58,7 +58,7 @@ while True:
      # moves flappy up and down
      
     # dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
-     sensor_value = (grovepi.analogRead(potentiometer)/2)
+     sensor_value = (analogRead(potentiometer)/2)
       
      time.sleep(0.1) # don't overload the i2c bus 
     
