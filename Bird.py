@@ -77,9 +77,9 @@ while True:
       
      birdpos = (posy*16)+1
      if oldpos <= birdpos:
-      disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos:]
+      disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos+1:]
      else:
-      disp = disp[:birdpos] + "@" + disp[birdpos+1:oldpos] + " " + disp[oldpos:]
+      disp = disp[:birdpos] + "@" + disp[birdpos+1:oldpos] + " " + disp[oldpos+1:]
      
      oldpos = birdpos
      setText(disp)
