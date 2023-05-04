@@ -18,7 +18,7 @@ time.sleep(1)
 adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
-def main():
+
  while cnt == 1: 
   #pipe 
   lcd.cursor_pos = (rand1, 4)
@@ -58,5 +58,5 @@ def main():
    else:
     cnt =0
        
-main()
+
 
