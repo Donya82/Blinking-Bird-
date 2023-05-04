@@ -18,9 +18,11 @@ adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
 cnt = 1
-
+oldpos = 0
+disp= "                                "
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
+    oldpos = 0
     rand1 = random.randint(0,1) #setting random ints for the position of the pipes
     rand2 = random.randint(0,1)
     disp= "                                "
@@ -36,14 +38,15 @@ while True:
     pipepos1 = (rand1*16) + random.randint(2,8)
     pipepos2 = (rand2*16) + random.randint(2,8)
     if pipepos1 <= pipepos2:
-      disp = disp[:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
+      disp = "@" + disp[1:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
     else:
-      disp = disp[:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
+      disp = "@" + disp[1:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
 
     setText(disp)  
     #set the initial conditions of bird 
     posx = 16 #last pixel of lcd
     cnt = 0 #start the game 
+    
 
   while cnt == 0:#start the game
       # moves flappy up and down
@@ -56,7 +59,18 @@ while True:
       posy = 0    
 
      # moves flappy forward
-     posx = posx - 1 
+     posx = posx + 1 
+     
+      
+     birdpos = (posy*16)+posx
+     if oldpos <= birdpos:
+      disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos:]
+     else:
+      disp = disp[:birdpos] + "@" + disp[birdpos+1:oldpos] + " " + disp[oldpos:]
+     
+     oldpos = birdpos
+     setText(disp)
+     
 
      #print bird
     
@@ -65,14 +79,13 @@ while True:
      #time.sleep(0.5)
 
     #check if bird hit pipe or won
-     if(posy == rand1 or posy == rand2):
-      if(posx == 2 or posx ==6 ):
+     if(birdpos == pipepos1 or birdpos == pipepos2):
        #Red light 
        #Reset score
        #Send score 
        #go to lose page 
        cnt=1
-     elif(posx == 0):
+     elif(birdpos == 15 or birdpos == 31):
       #Pause
       #Score update (pop up screen) check if last point win or loss 
       #Green light 
