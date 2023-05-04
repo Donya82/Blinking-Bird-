@@ -43,15 +43,18 @@ while True:
     else:
       disp = "@" + disp[1:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
   
-    setText(disp)  
+    setText(disp) 
+    time.sleep(0.1)
     #set the initial conditions of bird 
     posx = 0 #last pixel of lcd
     cnt = 0 #start the game 
     
   
   while cnt == 0:#start the game
-     setText("DEBUG")
+     #setText("DEBUG")
+     #time.sleep(0.1)
      # moves flappy up and down
+     """
      dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
      time.sleep(0.1) # don't overload the i2c bus 
      sensor_value = 150 #set midway sensor value
@@ -59,7 +62,10 @@ while True:
       posy = 1
      elif(dist < sensor_value):  #if distance is lower than the threshhold flappy moves down 
       posy = 0    
-
+     """
+     
+     posy = random.randint(0,1)
+    
      # moves flappy forward
      posx += 1 
       
@@ -71,6 +77,7 @@ while True:
      
      oldpos = birdpos
      setText(disp)
+     time.sleep(0.1)
      
 
      #print bird
