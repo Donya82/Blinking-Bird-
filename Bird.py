@@ -47,7 +47,7 @@ while cnt == 0:#start the game
    posx = posx - 1 
  
    #print bird
-   cursor_pos = (posy, posx) 
+   cursor_pos = (2, 8) 
    setText( "@")
    time.sleep(0.5)
     
