@@ -35,7 +35,7 @@ while cnt == 1: #when cnt=1 game is in the begining set up phase
   
 while cnt == 0:#start the game
     # moves flappy up and down
-   dist= grovepi.ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
+   dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
    time.sleep(0.1) # don't overload the i2c bus 
    sensor_value = 150 #set midway sensor value
    if(dist >= sensor_value): #if distance is higher or equal than the threshhold flappy moves up
