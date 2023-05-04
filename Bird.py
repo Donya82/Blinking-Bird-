@@ -19,11 +19,12 @@ adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
 cnt = 1
-disp= "                                "
+
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
+    disp= "                                "
     #set player (1 or 2)
-
+    setText(disp)
     #position and print the pipes
     """
     grovepi.setCursor (4, rand1)
