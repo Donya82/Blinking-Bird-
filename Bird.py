@@ -25,10 +25,18 @@ while True:
     #set player (1 or 2)
 
     #position and print the pipes
+    """
     grovepi.setCursor (4, rand1)
     setText( "!")
     grovepi.setCursor(6, rand2)
     setText( "!")
+    """
+    pipepos1 = (rand1*16) + random.randint(2,8)
+    pipepos2 = (rand2*16) + random.randint(2,8)
+    if pipepos1 <= pipepos2:
+      disp = disp[:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
+    else:
+      disp = disp[:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
 
     #set the initial conditions of bird 
     posx = 16 #last pixel of lcd
