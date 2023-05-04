@@ -26,9 +26,16 @@ disp= "                                "
 player =1 
 score1=0
 score2=0
-setRGB(100,0,255)
+
 while True:
+  if cnt == 3:
+    score1=0
+    score2=0
+    player=1
+    cnt=1
+   
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
+    setRGB(100,0,255)
     posx = 0
     oldpos = 0
     rand1 = random.randint(0,1) #setting random ints for the position of the pipes
