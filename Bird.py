@@ -18,7 +18,7 @@ time.sleep(1)
 adc_ref = 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
-
+cnt = 1
 
 while cnt == 1: #when cnt=1 game is in the begining set up phase 
   #set player (1 or 2)
