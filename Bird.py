@@ -9,8 +9,7 @@ set_bus("RPI_1") # set I2C to use the hardware bus
 ultrasonic_ranger = 4 # Connect the Grove Ultrasonic Ranger to digital port D4
 #range = 150 #mid point of range
 
-rand1 = random.randint(0,1) #setting random ints for the position of the pipes
-rand2 = random.randint(0,1)
+
 
 time.sleep(1)
 
@@ -22,6 +21,8 @@ cnt = 1
 
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
+    rand1 = random.randint(0,1) #setting random ints for the position of the pipes
+    rand2 = random.randint(0,1)
     disp= "                                "
     #set player (1 or 2)
     setText(disp)
