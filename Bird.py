@@ -10,7 +10,7 @@ set_bus("RPI_1") # set I2C to use the hardware bus
 #range = 150 #mid point of range
 
 potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
-grovepi.pinMode(potentiometer,"INPUT")
+pinMode(potentiometer,"INPUT")
 time.sleep(1)
 
 # Reference voltage of ADC is 5v
