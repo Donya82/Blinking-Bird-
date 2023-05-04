@@ -7,7 +7,7 @@ from grove_rgb_lcd import *
 grovepi.set_bus("RPI_1") # set I2C to use the hardware bus
 
 ultrasonic_ranger = 4 # Connect the Grove Ultrasonic Ranger to digital port D4
-range = 150 #mid point of range
+#range = 150 #mid point of range
 birdpos = (posx, posy)
 rand1 = random.randint(0,1)
 rand2 = random.randint(0,1)
@@ -38,7 +38,7 @@ def main():
       dist= grovepi.ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
 
       time.sleep(0.1) # don't overload the i2c bus 
-      sensor_value = range
+      sensor_value = 150
 
       if(dist >= sensor_value): #if distance is higher or equal than the threshhold flappy moves up
         posy = 1
@@ -68,6 +68,6 @@ def main():
       else:
         cnt =0
         
-if __name__ == '__main__':
+ if __name__ == '__main__':
     main()
 
