@@ -62,7 +62,7 @@ while True:
     # dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
      sensor_value = (analogRead(potentiometer)/2)
       
-     time.sleep(0.5) # don't overload the i2c bus 
+     time.sleep(0.25) # don't overload the i2c bus 
     
      if(sensor_value >= 150): #if distance is higher or equal than the threshhold flappy moves up
       posy = 1
@@ -85,7 +85,7 @@ while True:
      
      oldpos = birdpos
      setText(disp)
-     time.sleep(0.5)
+     time.sleep(0.25)
      
 
      #print bird
