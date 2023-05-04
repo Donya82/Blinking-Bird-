@@ -24,6 +24,8 @@ oldpos = 0
 posx = 0
 disp= "                                "
 player =1 
+score1=0
+score2=0
 while True:
   while cnt == 1: #when cnt=1 game is in the begining set up phase 
     posx = 0
@@ -105,13 +107,13 @@ while True:
           player = 2
           cnt=1
       elif player==2:
-          if score1> score 2:
+          if score1 > score2:
             setText("Player 1 Wins") 
-          elif score1< score 2:
+          elif score1< score2:
             setText("Player 2 Wins")          
-          elif score1 == score 2:
+          elif score1 == score2:
             setText("Tie")   
-           cnt=3
+          cnt=3
        
         
        
