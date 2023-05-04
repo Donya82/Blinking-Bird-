@@ -24,9 +24,9 @@ while True:
     #set player (1 or 2)
 
     #position and print the pipes
-    setCursor (rand1, 4)
+    setCursor (4, rand1)
     setText( "!")
-    setCursor(rand2, 6)
+    setCursor(6, rand2)
     setText( "!")
 
     #set the initial conditions of bird 
@@ -47,7 +47,7 @@ while True:
      posx = posx - 1 
 
      #print bird
-     setCursor(posy, posx) 
+     setCursor(posx, posy) 
      setText( "@")
      time.sleep(0.5)
 
