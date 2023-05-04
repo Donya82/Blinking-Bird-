@@ -101,10 +101,10 @@ while True:
       #flash red
       setRGB(255,0,0)
       #change player 
-        if player==1:
+      if player==1:
           player = 2
           cnt=1
-        elif player==2:
+      elif player==2:
           if score1> score 2:
             setText("Player 1 Wins") 
           elif score1< score 2:
