@@ -52,8 +52,8 @@ while cnt == 0:
 
 
 
-  if(posy == rand1 or rand2)
-    if(posx == 2 or 6):
+  if(posy == rand1 or posy == rand2)
+    if(posx == 2 or posx ==6 ):
         #Red light 
         #Reset score
         #Send score 
