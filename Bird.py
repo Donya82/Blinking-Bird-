@@ -20,12 +20,12 @@ adc_ref = 5
 grove_vcc = 5
 while cnt = 1: 
     #pipe 
-     lcd.cursor_pos = (rand1, 2)
+     lcd.cursor_pos = (rand1, 4)
      lcd.write_string( "!")
      lcd.cursor_pos = (rand2, 6)
      lcd.write_string( "!")
 
-     posx = 10 #last pixel of lcd
+     posx = 16 #last pixel of lcd
      cnt = 0 
 
  
