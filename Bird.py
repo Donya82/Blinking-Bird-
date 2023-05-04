@@ -3,7 +3,6 @@ from grovepi import *
 import time
 import random
 from grove_rgb_lcd import *
-from grove.factory import Factory
 
 set_bus("RPI_1") # set I2C to use the hardware bus
 
@@ -25,9 +24,9 @@ while True:
     #set player (1 or 2)
 
     #position and print the pipes
-    setCursor (4, rand1)
+    grovepi.setCursor (4, rand1)
     setText( "!")
-    setCursor(6, rand2)
+    grovepi.setCursor(6, rand2)
     setText( "!")
 
     #set the initial conditions of bird 
@@ -48,7 +47,7 @@ while True:
      posx = posx - 1 
 
      #print bird
-     setCursor(posx, posy) 
+     grovepi.setCursor(posx, posy) 
      setText( "@")
      time.sleep(0.5)
 
