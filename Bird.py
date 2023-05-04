@@ -143,4 +143,11 @@ while True:
       cnt =0
 
 
+'''
+FOR API:
+import mail  API
+send score via email
+receive to VM
+graph using pyplot
 
+'''
