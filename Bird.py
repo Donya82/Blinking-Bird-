@@ -65,5 +65,8 @@ while cnt == 0:
     #Green light 
     #next player
     cnt =1
+    
+  else:
+    cnt =0
 
 
