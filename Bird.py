@@ -6,15 +6,17 @@ from grove_rgb_lcd import *
 
 set_bus("RPI_1") # set I2C to use the hardware bus
 
-ultrasonic_ranger = 4 # Connect the Grove Ultrasonic Ranger to digital port D4
+#ultrasonic_ranger = 4 # Connect the Grove Ultrasonic Ranger to digital port D4
 #range = 150 #mid point of range
 
-
-
+potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
+grovepi.pinMode(potentiometer,"INPUT")
 time.sleep(1)
 
 # Reference voltage of ADC is 5v
 adc_ref = 5
+# Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
+full_angle = 300
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
 cnt = 1
@@ -54,17 +56,19 @@ while True:
      #setText("DEBUG")
      #time.sleep(0.1)
      # moves flappy up and down
-     '''
-     dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
+     
+    # dist= ultrasonicRead(ultrasonic_ranger) # Read distance value from Ultrasonic
+     sensor_value = (grovepi.analogRead(potentiometer)/2)
+      
      time.sleep(0.1) # don't overload the i2c bus 
-     sensor_value = 150 #set midway sensor value
-     if(dist >= sensor_value): #if distance is higher or equal than the threshhold flappy moves up
+    
+     if(sensor_value >= 150): #if distance is higher or equal than the threshhold flappy moves up
       posy = 1
       setText("low")
-     elif(dist < sensor_value):  #if distance is lower than the threshhold flappy moves down 
+     elif(sensor_value < 150):  #if distance is lower than the threshhold flappy moves down 
       posy = 0  
       setText("high")
-     '''
+     
      
      posy = random.randint(0,1)
      
