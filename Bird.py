@@ -3,28 +3,43 @@ from grovepi import *
 import time
 import random
 from grove_rgb_lcd import *
+import numpy as np
+import requests
+import matplotlib
 
-set_bus("RPI_1") # set I2C to use the hardware bus
-potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
-button = 4
-pinMode(potentiometer,"INPUT")
-time.sleep(1)
-# Reference voltage of ADC is 5v
-adc_ref = 5
-# Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
-full_angle = 300
-grove_vcc = 5 # Set Vcc of the grove interface is to 5v
-
-#setting all initial conditions of variables 
-cnt = 1 
-oldpos = 0
-posx = 0
-disp = "                                "
-player = 1 
-score1 = 0
-score2 = 0
+def postScore(hostname: str, score: Dict[str, int]):
+    """Post the winning score on leaderboard
+    
+    Args:
+        hostname: 
+        score: 
+        
+    Returns:
+        NA
+    """
+    response = requests.post(f"http://{hostname}:5000/leaderboard", data=score)
 
 def main():
+  set_bus("RPI_1") # set I2C to use the hardware bus
+  potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
+  button = 4
+  pinMode(potentiometer,"INPUT")
+  time.sleep(1)
+  # Reference voltage of ADC is 5v
+  adc_ref = 5
+  # Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
+  full_angle = 300
+  grove_vcc = 5 # Set Vcc of the grove interface is to 5v
+
+  #setting all initial conditions of variables 
+  cnt = 1 
+  oldpos = 0
+  posx = 0
+  disp = "                                "
+  player = 1 
+  score1 = 0
+  score2 = 0
+
   while True: #reset (after both players have played)
     if cnt == 3:
       #set all variables back to start
@@ -116,6 +131,7 @@ def main():
             '''
             scoreDict = {name1:score1,
                          name2:score2}
+            postScore('10.26.12.171', scoreDict)
 
             time.sleep(1)
 
