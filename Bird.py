@@ -6,6 +6,7 @@ from grove_rgb_lcd import *
 
 set_bus("RPI_1") # set I2C to use the hardware bus
 potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
+button = 4
 pinMode(potentiometer,"INPUT")
 time.sleep(1)
 # Reference voltage of ADC is 5v
@@ -23,103 +24,121 @@ player = 1
 score1 = 0
 score2 = 0
 
-while True: #reset (after both players have played)
-  if cnt == 3:
-    #set all variables back to start
-    score1 = 0 
-    score2 = 0
-    player = 1
-    #start set up of game
-    cnt = 1 
-    
-  while cnt == 1: #set up phase of game
-    setRGB(110,0,255)
-    posx = 0
-    oldpos = 0
-    rand1 = random.randint(0,1) #setting random ints for the position of the pipes
-    rand2 = random.randint(0,1)
-    disp= "                                "
-    
-    #position the pipes on random
-    setText(disp)
-    pipepos1 = (rand1*16) + random.randint(2,5) 
-    pipepos2 = (rand2*16) + random.randint(6,10)
-    
-    #print the pipes on the screen 
-    if pipepos1 <= pipepos2:
-      disp = "@" + disp[1:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
-    else:
-      disp = "@" + disp[1:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
-    setText(disp) 
-    time.sleep(0.1)
-    
-    #set the initial conditions of bird 
-    posx = 0 #last pixel of lcd
-    cnt = 0 #start the game for player
-    
-  while cnt == 0:#start the game
-     setRGB(110,0,255)
-     sensor_value = (analogRead(potentiometer)/2) #get info from potentiometer  
-     time.sleep(0.25) # don't overload the i2c bus 
-    
-     #get row (y-axis) position of the bird
-     if(sensor_value >= 150): #if distance is higher or equal than the threshhold flappy moves up
-      posy = 1
-      setText("low")
-     elif(sensor_value < 150):  #if distance is lower than the threshhold flappy moves down 
-      posy = 0  
-      setText("high")
-     
-     #moves flappy forward
-     posx += 1 
-    
-     #get xolumn postion of bird and prints
-     birdpos = (posy*16)+posx
-     if oldpos <= birdpos:
-      disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos+1:]
-     else:
-      disp = disp[:birdpos] + "@" + disp[birdpos+1:oldpos] + " " + disp[oldpos+1:]
-     oldpos = birdpos
-     setText(disp)
-     time.sleep(0.25)
+def main():
+  while True: #reset (after both players have played)
+    if cnt == 3:
+      #set all variables back to start
+      score1 = 0 
+      score2 = 0
+      player = 1
+      #start set up of game
+      cnt = 1 
 
-    #check if bird hit pipe or won
-     if(birdpos == pipepos1 or birdpos == pipepos2): #did bird hit pipe?
-      #flash red
-      setRGB(255,0,0)
-      #change player 
-      if player==1:
-          player = 2
-          cnt=1
-      elif player==2:#if round oevr check who won
-          if score1 > score2:
-            setText("Player 1 Wins") 
-          elif score1< score2:
-            setText("Player 2 Wins")          
-          elif score1 == score2:
-            setText("Tie")   
-          cnt=3 #reset game
-          time.sleep(1)
-       
-       #Send score 
+    while cnt == 1: #set up phase of game
+      setRGB(110,0,255)
+      posx = 0
+      oldpos = 0
+      rand1 = random.randint(0,1) #setting random ints for the position of the pipes
+      rand2 = random.randint(0,1)
+      disp= "                                "
 
-     elif(birdpos == 15 or birdpos == 31):#did player score?
-     #update scores 
-      if player ==1:
-        score1 += 1
-      elif player ==2:
-        score2 += 1
-      #Green light 
-      setRGB(0,255,0)
-      time.sleep(0.50)
-      
-      #continue game
-      cnt =1
-     
-    else:#keep game going
-      cnt =0
+      #position the pipes on random
+      setText(disp)
+      pipepos1 = (rand1*16) + random.randint(2,5) 
+      pipepos2 = (rand2*16) + random.randint(6,10)
 
+      #print the pipes on the screen 
+      if pipepos1 <= pipepos2:
+        disp = "@" + disp[1:pipepos1] + "!" + disp[pipepos1+1:pipepos2] + "!" + disp[pipepos2:]
+      else:
+        disp = "@" + disp[1:pipepos2] + "!" + disp[pipepos2+1:pipepos1] + "!" + disp[pipepos1:]
+      setText(disp) 
+      time.sleep(0.1)
 
+      #set the initial conditions of bird 
+      posx = 0 #last pixel of lcd
+      cnt = 0 #start the game for player
+
+    while cnt == 0:#start the game
+       setRGB(110,0,255)
+       sensor_value = (analogRead(potentiometer)/2) #get info from potentiometer  
+       time.sleep(0.25) # don't overload the i2c bus 
+
+       #get row (y-axis) position of the bird
+       if(sensor_value >= 150): #if distance is higher or equal than the threshhold flappy moves up
+        posy = 1
+        setText("low")
+       elif(sensor_value < 150):  #if distance is lower than the threshhold flappy moves down 
+        posy = 0  
+        setText("high")
+
+       #moves flappy forward
+       posx += 1 
+
+       #get xolumn postion of bird and prints
+       birdpos = (posy*16)+posx
+       if oldpos <= birdpos:
+        disp = disp[:oldpos] + " " + disp[oldpos+1:birdpos] + "@" + disp[birdpos+1:]
+       else:
+        disp = disp[:birdpos] + "@" + disp[birdpos+1:oldpos] + " " + disp[oldpos+1:]
+       oldpos = birdpos
+       setText(disp)
+       time.sleep(0.25)
+
+      #check if bird hit pipe or won
+       if(birdpos == pipepos1 or birdpos == pipepos2): #did bird hit pipe?
+        #flash red
+        setRGB(255,0,0)
+        #change player 
+        if player==1:
+            player = 2
+            cnt=1
+        elif player==2:#if round oevr check who won
+            if score1 > score2:
+              setText("Player 1 Wins") 
+            elif score1< score2:
+              setText("Player 2 Wins")          
+            elif score1 == score2:
+              setText("Tie")   
+            cnt=3 #reset game
+            #sending scores to leaderboard API: 
+            name1 = input("Enter Player 1 name: ")
+            name2 = input("Enter Player 2 name: ")
+            #if we have enough time: use the rotary encoder for this?
+            '''
+            rotaryAlph = "abcdefghijklmnopqrstuvwxyz0"
+            sensor_value = (analogRead(potentiometer)/2) #get info from potentiometer
+            if sensor_value <= 25:
+              letterChoice = rotaryAlph[sensor_value]
+            else:
+              letterChoice = "0"
+            
+            '''
+            scoreDict = {name1:score1,
+                         name2:score2}
+
+            time.sleep(1)
+
+         #Send score 
+
+       elif(birdpos == 15 or birdpos == 31):#did player score?
+       #update scores 
+        if player ==1:
+          score1 += 1
+        elif player ==2:
+          score2 += 1
+        #Green light 
+        setRGB(0,255,0)
+        time.sleep(0.50)
+
+        #continue game
+        cnt =1
+
+      else:#keep game going
+        cnt =0
+
+if __name__ == '__main__':
+    main()
 '''
 FOR API:
 import mail  API
