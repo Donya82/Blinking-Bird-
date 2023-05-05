@@ -17,13 +17,14 @@ def postScore(hostname: str, score: Dict[str, int]):
     Returns:
         NA
     """
-    response = requests.post(f"http://{hostname}:5000/leaderboard", data=score)
+    response = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
 
 def main():
   set_bus("RPI_1") # set I2C to use the hardware bus
   potentiometer = 0 # Connect the Grove Rotary Angle Sensor to analog port A0
   button = 4
   pinMode(potentiometer,"INPUT")
+  pinMode(button,"INPUT")
   time.sleep(1)
   # Reference voltage of ADC is 5v
   adc_ref = 5
@@ -117,25 +118,36 @@ def main():
               setText("Tie")   
             cnt=3 #reset game
             #sending scores to leaderboard API: 
+            '''
             name1 = input("Enter Player 1 name: ")
-            name2 = input("Enter Player 2 name: ")
             #if we have enough time: use the rotary encoder for this?
             '''
             rotaryAlph = "abcdefghijklmnopqrstuvwxyz0"
             sensor_value = (analogRead(potentiometer)/2) #get info from potentiometer
-            if sensor_value <= 25:
-              letterChoice = rotaryAlph[sensor_value]
-            else:
-              letterChoice = "0"
-            
-            '''
-            scoreDict = {name1:score1,
-                         name2:score2}
+            exit_status = False
+            name1 = "@"
+            disp = "Enter Name:     " + name1
+            namelen = 0
+            while exit_status is False:
+                if sensor_value <= 25:
+                  letterChoice = rotaryAlph[sensor_value]
+                else:
+                  letterChoice = "0"
+                setText(disp + letterChoice)
+                button_status = digitalRead(button)
+                if button_status:
+                  if letterChoice == "0" or namelen == 16:
+                   exit_status = True
+                  else:
+                   name1 = name1 + letterChoice
+                   disp = "Enter Name:     " + name1
+                   namelen += 1
+            #send score
+            scoreDict = {name1:score1}
             postScore('10.26.12.171', scoreDict)
 
             time.sleep(1)
 
-         #Send score 
 
        elif(birdpos == 15 or birdpos == 31):#did player score?
        #update scores 
