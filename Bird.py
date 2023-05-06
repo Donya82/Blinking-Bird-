@@ -5,7 +5,6 @@ import random
 from grove_rgb_lcd import *
 import numpy as np
 import requests
-import matplotlib
 
 def postScore(hostname: str, score: Dict[str, int]):
     """Post the winning score on leaderboard
