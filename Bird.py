@@ -143,13 +143,13 @@ def main():
                    name1 = name1 + letterChoice
                    disp = "Enter Name:     " + name1
                    namelen += 1
-            
+            '''
             #send score
             scoreDict = {name1:score1}
             postScore('10.26.12.171', scoreDict)
 
             time.sleep(1)
-            '''
+            
 
        elif(birdpos == 15 or birdpos == 31):#did player score?
         #update scores 
