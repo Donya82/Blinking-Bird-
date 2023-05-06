@@ -117,9 +117,13 @@ def main():
             if score1 > score2:
               setText("Player 1 Wins") 
               name1 = input("Enter Winner's name: ")
+              scoreDict = {name1:score1}
+              postScore(IP, scoreDict)
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
+              scoreDict = {name1:score1}
+              postScore(IP, scoreDict)
             elif score1 == score2:
               setText("Tie")   
             cnt=3 #reset game
@@ -151,8 +155,6 @@ def main():
                    namelen += 1
             '''
             #send score
-            scoreDict = {name1:score1}
-            postScore(IP, scoreDict)
 
             time.sleep(1)
             
