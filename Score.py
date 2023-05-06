@@ -33,7 +33,7 @@ def receive_new_score() -> List[Dict[str, str]]:
   tojason = mes.decode('utf-8')
   leaderboard.append(tojason)
   save_leaderboard(leaderboard)
-  return leaderboard
+  return jsonify(leaderboard)
 '''
 @app.route('/leaderboard/makeboard', methods=['GET'])
 def print_leaderboard():
