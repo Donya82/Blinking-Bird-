@@ -1,6 +1,6 @@
 
 from grovepi import *
-import time
+import   
 import random
 from grove_rgb_lcd import *
 import numpy as np
@@ -17,6 +17,7 @@ def postScore(hostname: str, score: Dict[str, int]):
     Returns:
         NA
     """
+                     
     response = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
 
 def main():
@@ -112,15 +113,17 @@ def main():
         elif player==2:#if round oevr check who won
             if score1 > score2:
               setText("Player 1 Wins") 
+              name1 = input("Enter Winner's name: ")
             elif score1< score2:
-              setText("Player 2 Wins")          
+              setText("Player 2 Wins")
+              name1 = input("Enter Winner's name: ")
             elif score1 == score2:
               setText("Tie")   
             cnt=3 #reset game
            
         #sending scores to leaderboard API: 
           
-            name1 = input("Enter Winner's name: ")
+            
             #if we have enough time: use the rotary encoder for this?
             '''
             rotaryAlph = "abcdefghijklmnopqrstuvwxyz0"
@@ -146,7 +149,7 @@ def main():
             '''
             #send score
             scoreDict = {name1:score1}
-            postScore('10.26.12.171', scoreDict)
+            postScore('mshun@ee250Final', scoreDict)
 
             time.sleep(1)
             
