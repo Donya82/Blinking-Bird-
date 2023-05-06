@@ -1,6 +1,5 @@
 
-from grovepi import *
-import   
+from grovepi import * 
 import random
 from grove_rgb_lcd import *
 import numpy as np
