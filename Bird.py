@@ -6,7 +6,7 @@ import numpy as np
 import requests
 from typing import Dict, List, Optional
 
-IP = "10.26.254.4"
+IP = "172.20.10.7"
 #melissa: 172.20.10.7
 #donya: 10.26.254.4
 
