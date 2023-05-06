@@ -5,6 +5,7 @@ import flask
 from grove_rgb_lcd import *
 import numpy as np
 import requests
+import json
 from typing import Dict, List, Optional
 
 IP = "172.20.10.7"
@@ -24,7 +25,7 @@ def postScore(hostname: str, score: Dict[str, str]) -> List[Dict[str, str]]:
                      
     post_score = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
     #request_leaderboard = requests.get(f"http://{hostname}:5000/leaderboard/makeboard")
-    return post_score
+    print(post_score.json())
     
 
 def main():
