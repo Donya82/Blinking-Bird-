@@ -152,7 +152,7 @@ def main():
 
 
        elif(birdpos == 15 or birdpos == 31):#did player score?
-       #update scores 
+        #update scores 
         if player ==1:
           score1 += 1
         elif player ==2:
@@ -160,11 +160,10 @@ def main():
         #Green light 
         setRGB(0,255,0)
         time.sleep(0.50)
-
         #continue game
         cnt =1
-
-      else:#keep game going
+            
+       else:#keep game going
         cnt =0
 
 if __name__ == '__main__':
