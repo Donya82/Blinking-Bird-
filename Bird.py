@@ -6,6 +6,8 @@ import numpy as np
 import requests
 from typing import Dict, List, Optional
 
+IP = "172.20.10.7"
+
 def postScore(hostname: str, score: Dict[str, int]):
     """Post the winning score on leaderboard
     
@@ -148,7 +150,7 @@ def main():
             '''
             #send score
             scoreDict = {name1:score1}
-            postScore("172.20.10.7", scoreDict)
+            postScore(IP, scoreDict)
 
             time.sleep(1)
             
