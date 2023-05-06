@@ -11,7 +11,7 @@ IP = "172.20.10.7"
 #melissa: 172.20.10.7
 #donya: 10.26.254.4
 
-def postScore(hostname: str, score: Dict[str, int]):
+def postScore(hostname: str, score: Dict[str, int]) -> List[Dict[str, str]]:
     """Post the winning score on leaderboard
     
     Args:
@@ -22,7 +22,10 @@ def postScore(hostname: str, score: Dict[str, int]):
         NA
     """
                      
-    response = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
+    post_score = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
+    request_leaderboard = requests.get(f"http://{hostname}:5000/leaderboard/makeboard")
+    return request_leaderboard
+    
 
 def main():
   set_bus("RPI_1") # set I2C to use the hardware bus
@@ -126,12 +129,14 @@ def main():
               setText("Player 1 Wins") 
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:score1}
-              postScore(IP, scoreDict)
+              ldrbrd = postScore(IP, scoreDict)
+              print(ldrbrd)
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:score1}
-              postScore(IP, scoreDict)
+              ldrbrd = postScore(IP, scoreDict)
+              print(ldrbrd)
             elif score1 == score2:
               setText("Tie")   
             cnt=3 #reset game
