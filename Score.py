@@ -8,7 +8,7 @@ import json
 app = Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute()
 
-def load_leaderboard() -> List[Dict[str, int]]:
+def load_leaderboard() -> List[Dict[str, str]]:
   """
     Loads the leaderboard
    """
@@ -17,14 +17,14 @@ def load_leaderboard() -> List[Dict[str, int]]:
   except FileNotFoundError:
    return []
 
-def save_leaderboard(lboard: List[Dict[str, int]]) -> None:
+def save_leaderboard(lboard: List[Dict[str, str]]):
     """
       Saves the leaderboard
     """
     thisdir.joinpath('blinkingScores.json').write_text(json.dumps(lboard, indent=4))
 
 @app.route('/leaderboard/sendscore', methods=['POST', 'GET'])
-def receive_new_score() -> None:
+def receive_new_score() -> List[Dict[str, str]]:
   """
    Appends leaderboard with new score
   """
