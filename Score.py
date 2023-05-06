@@ -30,8 +30,8 @@ def receive_new_score() -> None:
   """
   mes = request.get_data()
   leaderboard = load_leaderboard()
-  #tojason = mes.decode('utf-8')
-  leaderboard.append(mes)
+  tojason = mes.decode('utf-8')
+  leaderboard.append(tojason)
   save_leaderboard(leaderboard)
   return leaderboard
 '''
