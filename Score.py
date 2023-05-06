@@ -33,14 +33,15 @@ def receive_new_score() -> None:
   tojason = mes.decode('utf-8')
   leaderboard.append(tojason)
   save_leaderboard(leaderboard)
-
+  return leaderboard
+'''
 @app.route('/leaderboard/makeboard', methods=['GET'])
 def print_leaderboard():
   """
    Takes the top 5 scores from the leaderboard and prints them 
   """
   leaderboard = load_leaderboard()
-  return leaderboard
+'''  
     
 
 
