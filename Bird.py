@@ -26,7 +26,7 @@ def postScore(hostname: str, score: Dict[str, str]) -> List[Dict[str, str]]:
     post_score = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
     #request_leaderboard = requests.get(f"http://{hostname}:5000/leaderboard/makeboard")
     myboard = post_score.json()
-    sorted_list = dict(sorted(myboard.items(),key=lambda x: x[1], reverse=True))
+    sorted_list = sorted(myboard.items(),key=lambda x: x[1], reverse=True)
     for item in sorted_list:
         print(item)
     
