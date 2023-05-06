@@ -4,7 +4,6 @@ from flask import Flask, request, jsonify
 import pathlib
 import uuid
 import json
-import matplotlib
 
 app = flask.Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute()
