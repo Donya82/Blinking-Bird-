@@ -56,8 +56,8 @@ def main():
       score2 = 0
       player = 1
       setRGB(110,0,255)
-      setText("Player 2 now playing") 
-      time.sleep(0.25)
+      setText("Player 1 now playing") 
+      time.sleep(0.75)
       #start set up of game
       cnt = 1 
 
