@@ -8,7 +8,7 @@ import json
 app = Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute()
 
-def load_leaderboard() -> List[Dict[str, int]]:
+def load_leaderboard() -> List[Dict[str, str]]:
   """
     Loads the leaderboard
    """
@@ -17,7 +17,7 @@ def load_leaderboard() -> List[Dict[str, int]]:
   except FileNotFoundError:
    return []
 
-def save_leaderboard(lboard: List[Dict[str, int]]) -> None:
+def save_leaderboard(lboard: List[Dict[str, str]]) -> None:
     """
       Saves the leaderboard
     """
