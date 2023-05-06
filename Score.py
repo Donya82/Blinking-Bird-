@@ -17,7 +17,7 @@ def load_leaderboard() -> Dict[str, str]]:
   except FileNotFoundError:
    return []
 
-def save_leaderboard(lboard: Dict[str, str]]) -> None:
+def save_leaderboard(lboard: Dict[str, str]) -> None:
     """
       Saves the leaderboard
     """
