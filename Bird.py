@@ -11,7 +11,7 @@ IP = "172.20.10.7"
 #melissa: 172.20.10.7
 #donya: 10.26.254.4
 
-def postScore(hostname: str, score: Dict[str, int]) -> List[Dict[str, str]]:
+def postScore(hostname: str, score: Dict[str, int]) -> List[Dict[str, int]]:
     """Post the winning score on leaderboard
     
     Args:
