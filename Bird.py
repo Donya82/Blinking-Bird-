@@ -6,8 +6,9 @@ import numpy as np
 import requests
 from typing import Dict, List, Optional
 
-IP = "172.20.10.7"
+IP = "10.26.254.4"
 #melissa: 172.20.10.7
+#donya: 10.26.254.4
 
 def postScore(hostname: str, score: Dict[str, int]):
     """Post the winning score on leaderboard
