@@ -120,7 +120,7 @@ def main():
            
         #sending scores to leaderboard API: 
           
-            name1 = input("Enter Player 1 name: ")
+            name1 = input("Enter Winner's name: ")
             #if we have enough time: use the rotary encoder for this?
             '''
             rotaryAlph = "abcdefghijklmnopqrstuvwxyz0"
