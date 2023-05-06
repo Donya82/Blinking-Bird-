@@ -137,7 +137,7 @@ def main():
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
-              scoreDict = {name1:score1}
+              scoreDict = {name1:score2}
               ldrbrd = postScore(IP, str(scoreDict))
               print(ldrbrd)
             elif score1 == score2:
