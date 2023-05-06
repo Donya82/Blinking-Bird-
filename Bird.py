@@ -52,10 +52,14 @@ def main():
       score1 = 0 
       score2 = 0
       player = 1
+      setRGB(110,0,255)
+      setText("Player 2 now playing") 
+      time.sleep(0.25)
       #start set up of game
       cnt = 1 
 
     while cnt == 1: #set up phase of game
+      
       setRGB(110,0,255)
       posx = 0
       oldpos = 0
@@ -113,6 +117,9 @@ def main():
         #change player 
         if player==1:
             player = 2
+            setRGB(110,0,255)
+            setText("Player 2 now playing") 
+            time.sleep(0.25)
             cnt=1
         elif player==2:#if round oevr check who won
             if score1 > score2:
