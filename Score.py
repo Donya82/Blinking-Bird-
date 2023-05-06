@@ -8,7 +8,7 @@ import matplotlib
 app = flask.Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute()
 
-def load_leaderboard() -> Dict[str, str]]:
+def load_leaderboard() -> Dict[str, str]:
   """
     Loads the leaderboard
    """
