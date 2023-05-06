@@ -117,8 +117,9 @@ def main():
             elif score1 == score2:
               setText("Tie")   
             cnt=3 #reset game
-            #sending scores to leaderboard API: 
-            '''
+           
+        #sending scores to leaderboard API: 
+          
             name1 = input("Enter Player 1 name: ")
             #if we have enough time: use the rotary encoder for this?
             '''
@@ -142,6 +143,7 @@ def main():
                    name1 = name1 + letterChoice
                    disp = "Enter Name:     " + name1
                    namelen += 1
+            '''
             #send score
             scoreDict = {name1:score1}
             postScore('10.26.12.171', scoreDict)
