@@ -23,8 +23,8 @@ def postScore(hostname: str, score: Dict[str, int]) -> List[Dict[str, str]]:
     """
                      
     post_score = requests.post(f"http://{hostname}:5000/leaderboard/sendscore", data=score)
-    request_leaderboard = requests.get(f"http://{hostname}:5000/leaderboard/makeboard")
-    return request_leaderboard
+    #request_leaderboard = requests.get(f"http://{hostname}:5000/leaderboard/makeboard")
+    return post_score
     
 
 def main():
