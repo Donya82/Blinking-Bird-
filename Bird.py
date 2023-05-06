@@ -11,7 +11,7 @@ IP = "172.20.10.7"
 #melissa: 172.20.10.7
 #donya: 10.26.254.4
 
-def postScore(hostname: str, score: Dict[str, int]) -> List[Dict[str, int]]:
+def postScore(hostname: str, score: Dict[str, str]) -> List[Dict[str, str]]:
     """Post the winning score on leaderboard
     
     Args:
@@ -129,13 +129,13 @@ def main():
               setText("Player 1 Wins") 
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:score1}
-              ldrbrd = postScore(IP, scoreDict)
+              ldrbrd = postScore(IP, str(scoreDict))
               print(ldrbrd)
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:score1}
-              ldrbrd = postScore(IP, scoreDict)
+              ldrbrd = postScore(IP, str(scoreDict))
               print(ldrbrd)
             elif score1 == score2:
               setText("Tie")   
