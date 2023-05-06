@@ -21,7 +21,8 @@ def save_leaderboard(lboard: List[Dict[str, str]]):
     """
       Saves the leaderboard
     """
-    thisdir.joinpath('blinkingScores.json').write_text(json.dumps(lboard, indent=4))
+    jason = json.dumps(lboard)
+    thisdir.joinpath('blinkingScores.json').write_text(jason)
 
 @app.route('/leaderboard/sendscore', methods=['POST', 'GET'])
 def receive_new_score() -> List[Dict[str, str]]:
