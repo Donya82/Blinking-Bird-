@@ -119,7 +119,7 @@ def main():
             player = 2
             setRGB(110,0,255)
             setText("Player 2 now playing") 
-            time.sleep(0.25)
+            time.sleep(0.75)
             cnt=1
         elif player==2:#if round oevr check who won
             if score1 > score2:
