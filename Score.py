@@ -5,7 +5,7 @@ import pathlib
 import uuid
 import json
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute()
 
 def load_leaderboard() -> Dict[str, str]:
@@ -23,7 +23,7 @@ def save_leaderboard(lboard: Dict[str, str]) -> None:
     """
     thisdir.joinpath('blinkingScores.json').write_text(json.dumps(lboard, indent=4))
 
-@app.route('/leaderboard/sendscore', methods=['POST'])
+@app.route('/leaderboard/sendscore', methods=['POST', 'GET'])
 def receive_new_score():
   """
    Appends leaderboard with new score
