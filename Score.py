@@ -30,8 +30,9 @@ def receive_new_score():
   """
   mes = request.get_data()
   leaderboard = load_leaderboard()
-  leaderboard.append(mes)
-  save_leaderboard(mes)
+  tojason = mes.decode('utf-8')
+  leaderboard.append(tojason)
+  save_leaderboard(leaderboard)
 
 @app.route('/leaderboard/makeboard', methods=['GET'])
 def print_leaderboard():
