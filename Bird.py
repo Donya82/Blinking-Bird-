@@ -149,7 +149,7 @@ def main():
             '''
             #send score
             scoreDict = {name1:score1}
-            postScore('mshun@ee250Final', scoreDict)
+            postScore('donya@donya-QEMU-Virtual-Machine', scoreDict)
 
             time.sleep(1)
             
