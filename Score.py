@@ -40,7 +40,7 @@ def print_leaderboard():
    Takes the top 5 scores from the leaderboard and prints them 
   """
   leaderboard = load_leaderboard()
-  print(leaderboard)
+  return leaderboard
     
 
 
