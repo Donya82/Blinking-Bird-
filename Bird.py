@@ -133,13 +133,11 @@ def main():
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:str(score1)}
               ldrbrd = postScore(IP, scoreDict)
-              print(ldrbrd)
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
               scoreDict = {name1:str(score2)}
               ldrbrd = postScore(IP, scoreDict)
-              print(ldrbrd)
             elif score1 == score2:
               setText("Tie")   
             cnt=3 #reset game
