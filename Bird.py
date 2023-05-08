@@ -131,14 +131,14 @@ def main():
             if score1 > score2:
               setText("Player 1 Wins") 
               name1 = input("Enter Winner's name: ")
-              scoreDict = {name1:score1}
-              ldrbrd = postScore(IP, str(scoreDict))
+              scoreDict = {name1:str(score1)}
+              ldrbrd = postScore(IP, scoreDict)
               print(ldrbrd)
             elif score1< score2:
               setText("Player 2 Wins")
               name1 = input("Enter Winner's name: ")
-              scoreDict = {name1:score2}
-              ldrbrd = postScore(IP, str(scoreDict))
+              scoreDict = {name1:str(score2)}
+              ldrbrd = postScore(IP, scoreDict)
               print(ldrbrd)
             elif score1 == score2:
               setText("Tie")   
